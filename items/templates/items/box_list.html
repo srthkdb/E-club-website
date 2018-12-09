@@ -1,0 +1,52 @@
+{%extends 'items/base.html'%}
+{% block title %}boxes list{%endblock%}
+{% block body %}
+
+<div class="container-fluid songs-container">
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <h3>Boxes list</h3>
+
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Item</th>
+                                <th>Location</th>
+                                <th>Total quantity</th>
+                                <th>Quantity remaining</th>
+                            </tr>
+                        </thead>
+
+                        {%for d in boxes %}
+                        <tbody>
+                            <tr>
+                                <th>{{ forloop.counter }}.</th>
+                                <td>{{d.item}}</td>
+                                <td>{{d.location}}</td>
+                                <td>{{d.quantity_total}}</td>
+                                <td>{{d.quantity_left}}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{%extends 'items/base.html'%}
+{% block title %}My Discussions{%endblock%}
+{% block body %}
+
+<div class="container-fluid songs-container">
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <h3>{{user.username}}'s Issues</h3>
+
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Item</th>
+                                <th>Location</th>
+                                <th>Quantity Issued</th>
+                                <th>Return</th>
+                            </tr>
+                        </thead>
+
+                        {%for d in issues %}
+                        <tbody>
+                            <tr>
+                                <th>{{ forloop.counter }}.</th>
+                                <td>{{d.box.item}}</td>
+                                <td>{{d.box.location}}</td>
+                                <td>{{d.quantity_issued}}</td>
+                                <td>{%if d.returned is False%}<a href="{% url 'items:create_return' d.id%}">Return</a>{%else%}Item returned{%endif%}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
