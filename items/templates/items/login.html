@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>login</title>
-</head>
-<body>
-    <h3>Log In</h3>
+
+<!--credits: webpage template used from newboston django tutorials-->
+
+<div class="container-fluid">
+
+    <div class="row">
+
+        <!-- left info -->
+        <div class="col-sm-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>Log In</h3>
                     {% if error_message %}
                         <p><strong>{{ error_message }}</strong></p>
                     {% endif %}
@@ -33,6 +37,14 @@
                             </div>
                         </div>
                     </form>
-                <h5>New User? <a href="{% url 'items:register'%}">Click Here</a> to register. </h5>
-</body>
-</html>
+                </div>
+                <div class="panel-footer">
+                    Don't have an account? <a href="{% url 'items:register' %}">Click here</a> to register.
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

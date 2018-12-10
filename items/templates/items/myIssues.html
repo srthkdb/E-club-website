@@ -1,5 +1,5 @@
 {%extends 'items/base.html'%}
-{% block title %}My Discussions{%endblock%}
+{% block title %}My Issues{%endblock%}
 {% block body %}
 
 <div class="container-fluid songs-container">
@@ -10,7 +10,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
 
-                    <h3>{{user.username}}'s Issues</h3>
+                    <h3>Items issued by {{user.username}}</h3>
 
                     {% if error_message %}
                         <p><strong>{{ error_message }}</strong></p>
